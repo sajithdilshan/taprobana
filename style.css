@@ -1,0 +1,680 @@
+/*
+Theme Name: Taprobana
+Theme URI: http://sajithdilshan.github.com/taprobana
+Author: Sajith Dilshan
+Author URI: http://sajithdilshan.github.com
+Description: A semantic, HTML5, wordpress theme inspired by twitter bootstrap
+Version: 0.1
+License: GNU General Public License
+License URI: license.txt
+Tags: sticky-post, microformats, rtl-language-support, translation-ready, full-width-template, post-formats
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* CSS reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+html,body {
+	margin:0;
+	padding:0;
+	background: rgba(0, 0, 0, 0.2) url('img/bg.png') repeat;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+input{
+	border:1px solid #b0b0b0;
+	padding:3px 5px 4px;
+	color:#979797;
+	width:190px;
+}
+address,caption,cite,code,dfn,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+
+a{
+	text-decoration: none;
+	color: #0088cc;
+}
+a:hover{
+	text-decoration: none;
+	color: #005580;	
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCC;
+}
+p{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height:26px;
+	color: rgba(0, 0, 0, 0.7);
+	}
+
+/* =Structure
+-------------------------------------------------------------- */
+
+#page {
+	display: block;
+	position: absolute;
+	margin-left: -490px;
+	margin-top: 60px;
+	left:50%;
+	width:1020px;
+}
+#primary {
+	float: left;
+	margin: 0 -460px 0 0;
+	width: 100%;
+}
+#content {
+	margin: 0 280px 0 0;
+
+}
+#main .widget-area ul{
+	padding: 0px 0px 0px 10px;
+	list-style: square inside;
+	color: rgba(0, 0, 0, 0.5);
+}
+#main .widget-area li{
+	color: rgba(0, 0, 0, 0.6);
+}
+#main .widget-area {
+	float: right;
+	overflow: hidden;
+	width: 210px;
+	padding: 20px;
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+
+}
+#main .widget-area a {
+	color: rgba(0, 0, 0, 0.7);
+}
+#main .widget-area a:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-decoration: underline;
+}
+#colophon {
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+/* Increase the size of the content area for templates without sidebars */
+.full-width #content,
+.image-attachment #content,
+.error404 #content {
+	margin: 0;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text,
+.assistive-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+}
+.alignright {
+	display: inline;
+	float: right;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* =Header
+-------------------------------------------------------------- */
+#header-area{
+	background-image:url(img/top_bg.png);
+	background-repeat-x: repeat;
+	background-repeat-y: no-repeat;
+	position: fixed;
+	width:100%;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	z-index:9000;
+
+}
+#site-title {
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 14pt;
+	font-weight: 400;
+	color: #eee;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+	padding: 9px 0px 9px 0px;
+	margin: 0 auto;
+	width: 1020px;
+	text-align: center;
+}
+.desc{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	padding: 9px 0px 9px 0px;
+	font-size:12px;
+}
+#site-title a:hover{
+	text-decoration: none;
+	border-bottom-width: 0px;
+
+}
+#site-title a:visited{
+	color: #eee;
+}
+
+/* =Content
+-------------------------------------------------------------- */
+
+.sticky {
+}
+.entry-meta {
+	clear: both;
+	display: block;
+}
+.single-author .entry-meta .byline {
+	display: none;
+}
+#content nav {
+	display: block;
+	overflow: hidden;
+}
+#content nav .nav-previous {
+	float: left;
+	width: 50%;
+}
+#content nav .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+#content #nav-above {
+	visibility: hidden;
+	display: none;
+}
+.paged #content #nav-above,
+.single #content #nav-above {
+	visibility: hidden;
+	display: block;
+}
+#nav-below {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	padding: 0px 0px 5px 0px;
+	margin: 10px 0px 20px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+.page-link {
+	clear: both;
+	margin: 0 0 1em;
+}
+h1.entry-title{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 25pt;
+	color: rgba(0, 0, 0, 0.7);
+}
+.entry-title a{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 25pt;
+	color: rgba(0, 0, 0, 0.7);
+}
+.entry-title a:hover{
+	color: rgba(50, 154, 163, 1.0);
+}
+.entry-meta{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 11pt;
+	margin: 10px 0px 20px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+.entry-content{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height:26px;
+	color: rgba(0, 0, 0, 0.7);
+}
+article{		
+	background: #FFFFFF;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	margin: 0px 0px 40px 0px;
+	display: block;
+	padding: 20px;
+}
+footer.entry-meta{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height:20px;
+	color: rgba(0, 0, 0, 0.8);
+}
+.entry-content h1{
+	font-size: 28px;
+}
+.entry-content h2{
+	font-size: 24px;
+}
+.entry-content h3{
+	font-size: 20px;
+}
+.entry-content h4{
+	font-size: 16px;
+}
+.entry-content h5{
+	font-size: 12px;
+}
+.entry-content ul{
+	line-height:18px;
+	list-style-type:square;
+	margin: 0px 0px 0px 20px;
+}
+.entry-content ol{
+	line-height:18px;
+	list-style-type:decimal;
+	margin: 0px 0px 0px 20px;
+}
+.entry-content img{
+	-webkit-box-shadow:0 0 20px #DDD;
+	-moz-box-shadow:0 0 20px #DDD;
+	box-shadow:0 0 20px #DDD;
+	margin: 10px 10px;
+}
+h1.page-title{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 14pt;
+	margin: 10px 0px 5px 0px;
+	color: rgba(0, 0, 0, 0.7);
+}
+code{
+	font-family: 'Inconsolata', sans-serif;
+	font-weight: 400;
+	font-size: 10pt;
+}
+blockquote  p{
+	font-family: 'Inconsolata', sans-serif;
+	font-weight: 400;
+	font-size:12pt;
+	margin:1.4em 3em 1.6em 3em;
+	padding:0.1em 0em 0.1em 1em;
+	border-left:2px solid #ddd;
+}
+.page .edit-link {
+	clear: both;
+	display: block;
+}
+
+/* 404 page */
+.error404 .widget {
+	float: left;
+	width: 33%;
+}
+.error404 .widget .widgettitle,
+.error404 .widget ul {
+	margin-right: 1em;
+}
+.error404 .widget_tag_cloud {
+	clear: both;
+	float: none;
+	width: 100%;
+}
+
+/* Notices */
+.post .notice,
+.error404 #searchform {
+	background: #fff;
+	display: block;
+	padding: 1em;
+}
+
+/* Image Attachments */
+.image-attachment div.entry-meta {
+	float: left;
+}
+.image-attachment nav {
+	float: right;
+	margin: 0 0 1em 0;
+}
+.image-attachment .entry-content {
+	clear: both;
+}
+.image-attachment .entry-content .entry-attachment {
+	background: #eee;
+	margin: 0 0 1em;
+	padding: 1em;
+	text-align: center;
+}
+.image-attachment .entry-content .attachment {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Aside Posts */
+.format-aside .entry-header {
+	display: none;
+}
+.single .format-aside .entry-header {
+	display: block;
+}
+.format-aside .entry-content,
+.format-aside .entry-summary {
+	padding-top: 1em;
+}
+.single .format-aside .entry-content,
+.single .format-aside .entry-summary {
+	padding-top: 0;
+}
+
+/* Gallery Posts */
+.format-gallery .gallery-thumb {
+	float: left;
+	margin: 0 1em 0 0;
+}
+
+/* Image Posts */
+.format-image .entry-header {
+	display: none;
+}
+.single .format-image .entry-header {
+	display: block;
+}
+.format-image .entry-content,
+.format-image .entry-summary {
+	padding-top: 1em;
+}
+.single .format-image .entry-content,
+.single .format-image .entry-summary {
+	padding-top: 0;
+}
+
+
+/* =Images
+-------------------------------------------------------------- */
+
+a img {
+	border: none;
+}
+p img {
+	margin-bottom: 0.5em; /* a small bottom margin prevents content floating under images */
+}
+/*
+Resize images to fit the main content area.
+- Applies only to images uploaded via WordPress by targeting size-* classes.
+- Other images will be left alone. Use "size-auto" class to apply to other images.
+*/
+img.size-auto,
+img.size-full,
+img.size-large,
+img.size-medium,
+.attachment img,
+.widget-area img,
+.wp-caption {
+	max-width: 100%; /* When images are too wide for containing element, force them to fit. */
+	height: auto; /* Override height to match resized width for correct aspect ratio. */
+}
+img.alignleft {
+	margin-right: 1em;
+}
+img.alignright {
+	margin-left: 1em;
+}
+.wp-caption {
+	padding: .5em;
+	text-align: center;
+}
+.wp-caption img {
+	margin: .25em;
+}
+.wp-caption .wp-caption-text {
+	margin: .5em;
+}
+.gallery-caption {
+}
+.wp-smiley {
+	margin: 0;
+}
+
+
+/* =Forms
+-------------------------------------------------------------- */
+
+#searchform label {
+	display: none;
+}
+#searchform input#s {
+	width: 60%;
+}
+input[type=text],
+input#s {
+	margin: 0 1em 5px 0;
+	width: 60%;
+}
+input{
+	-webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+}
+input:focus, textarea:focus{
+	outline: none;
+    border: 1px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+}
+textarea{
+	width: 80%;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+
+input#searchsubmit, input#submit{
+	font:11px/14px "Lucida Grande", "Lucida Sans", sans-serif;
+  	display: inline-block;
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width:50px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: #d7d7d7;
+    border: solid 1px #333;
+    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#000));
+    background: -moz-linear-gradient(top,  #666,  #000);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#000000');
+
+}
+input#submit{
+	width:100px;
+}
+input#searchsubmit:hover, input#submit:hover{
+    text-decoration: none;
+    background: #000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+    background: -moz-linear-gradient(top,  #444,  #000);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#000000');
+
+}
+input#searchsubmit:active, input#submit:active{
+    position: relative;
+    top: 1px;
+    color: #666;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#444));
+    background: -moz-linear-gradient(top,  #000,  #444);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#666666');
+
+}
+
+/* Class for labelling required form items */
+.required {
+	color: #cc0033;
+}
+
+
+/* =Comments
+-------------------------------------------------------------- */
+.bypostauthor{
+	
+}
+h3#reply-title{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 14pt;
+	margin: 0px 0px 10px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+div.comment-content{
+	padding: 10px 0px;
+}
+article.comment {
+	display: block;
+	margin: 20px 0px 20px 0px;
+	padding: 20px 20px 20px 20px;
+}
+div.comment-meta.commentmetadata {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+div.comment-meta.commentmetadata a{
+	font-size: 9pt;
+	font-weight:400;
+	margin: 0px 0px 0px 20px;
+}
+span.says{
+	font-weight:400;
+}
+div.reply{
+	font-weight:400;	
+}
+article.comment img{
+	-webkit-box-shadow:0 0 20px #DDD;
+	-moz-box-shadow:0 0 20px #DDD;
+	box-shadow:0 0 20px #DDD;
+	margin: 0px 10px;
+}
+#comments{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 12pt;
+	line-height:26px;
+	margin: 20px 0px 20px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+#respond input[type=text] {
+	display: block;
+	width: 60%;
+}
+#respond textarea {
+	display: block;
+	margin: 0 0 1em;
+	width: 80%;
+}
+#respond .form-allowed-tags {
+	clear: both;
+	width: 80%;
+}
+#respond .form-allowed-tags code {
+	display: block;
+}
+
+
+/* =Widgets
+-------------------------------------------------------------- */
+
+.widget {
+	display: block;
+}
+.widget-area .widget_search {
+	overflow: hidden;
+	padding: 5px 0px 0px 5px;
+}
+.widget-area .widget_search input {
+	float: left;
+}
+.widget-title{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 11pt;
+	margin: 15px 0px 0px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+.widget-area ul,li{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	margin: 5px 0px 5px 0px;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+/* =Footer
+-------------------------------------------------------------- */
+
+#colophon {
+	font-family: 'Lucida Grande', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+	margin: 0px 0px 20px 0px;
+	color: rgba(0, 0, 0, 0.8);
+	text-align:center;
+}
+#colophon a {
+	color: rgba(0, 0, 0, 0.8);
+}
+#colophon a:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-decoration:none;
+}

@@ -28,7 +28,7 @@
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
 
-if ( ! function_exists( 'toolbox_setup' ) ):
+if ( ! function_exists( 'taprobana_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -36,10 +36,10 @@ if ( ! function_exists( 'toolbox_setup' ) ):
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * To override toolbox_setup() in a child theme, add your own toolbox_setup to your child theme's
+ * To override taprobana_setup() in a child theme, add your own taprobana_setup to your child theme's
  * functions.php file.
  */
-function toolbox_setup() {
+function taprobana_setup() {
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
@@ -70,12 +70,12 @@ function toolbox_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery' ) );
 }
-endif; // toolbox_setup
+endif; // taprobana_setup
 
 /**
- * Tell WordPress to run toolbox_setup() when the 'after_setup_theme' hook is run.
+ * Tell WordPress to run taprobana_setup() when the 'after_setup_theme' hook is run.
  */
-add_action( 'after_setup_theme', 'toolbox_setup' );
+add_action( 'after_setup_theme', 'taprobana_setup' );
 
 /**
  * Set a default theme color array for WP.com.
@@ -89,16 +89,16 @@ $themecolors = array(
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-function toolbox_page_menu_args( $args ) {
+function taprobana_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'toolbox_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'taprobana_page_menu_args' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function toolbox_widgets_init() {
+function taprobana_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar 1', 'toolbox' ),
 		'id' => 'sidebar-1',
@@ -118,15 +118,15 @@ function toolbox_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 }
-add_action( 'init', 'toolbox_widgets_init' );
+add_action( 'init', 'taprobana_widgets_init' );
 
-if ( ! function_exists( 'toolbox_content_nav' ) ):
+if ( ! function_exists( 'taprobana_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
  *
  * @since Toolbox 1.2
  */
-function toolbox_content_nav( $nav_id ) {
+function taprobana_content_nav( $nav_id ) {
 	global $wp_query;
 
 	?>
@@ -153,21 +153,21 @@ function toolbox_content_nav( $nav_id ) {
 	</nav><!-- #<?php echo $nav_id; ?> -->
 	<?php
 }
-endif; // toolbox_content_nav
+endif; // taprobana_content_nav
 
 
-if ( ! function_exists( 'toolbox_comment' ) ) :
+if ( ! function_exists( 'taprobana_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
  * To override this walker in a child theme without modifying the comments template
- * simply create your own toolbox_comment(), and that function will be used instead.
+ * simply create your own taprobana_comment(), and that function will be used instead.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  * @since Toolbox 0.4
  */
-function toolbox_comment( $comment, $args, $depth ) {
+function taprobana_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -213,16 +213,16 @@ function toolbox_comment( $comment, $args, $depth ) {
 			break;
 	endswitch;
 }
-endif; // ends check for toolbox_comment()
+endif; // ends check for taprobana_comment()
 
-if ( ! function_exists( 'toolbox_posted_on' ) ) :
+if ( ! function_exists( 'taprobana_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
- * Create your own toolbox_posted_on to override in a child theme
+ * Create your own taprobana_posted_on to override in a child theme
  *
  * @since Toolbox 1.2
  */
-function toolbox_posted_on() {
+function taprobana_posted_on() {
 	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'toolbox' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
@@ -240,7 +240,7 @@ endif;
  *
  * @since Toolbox 1.2
  */
-function toolbox_body_classes( $classes ) {
+function taprobana_body_classes( $classes ) {
 	// Adds a class of single-author to blogs with only 1 published author
 	if ( ! is_multi_author() ) {
 		$classes[] = 'single-author';
@@ -248,14 +248,14 @@ function toolbox_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'toolbox_body_classes' );
+add_filter( 'body_class', 'taprobana_body_classes' );
 
 /**
  * Returns true if a blog has more than 1 category
  *
  * @since Toolbox 1.2
  */
-function toolbox_categorized_blog() {
+function taprobana_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
@@ -269,30 +269,30 @@ function toolbox_categorized_blog() {
 	}
 
 	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so toolbox_categorized_blog should return true
+		// This blog has more than 1 category so taprobana_categorized_blog should return true
 		return true;
 	} else {
-		// This blog has only 1 category so toolbox_categorized_blog should return false
+		// This blog has only 1 category so taprobana_categorized_blog should return false
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in toolbox_categorized_blog
+ * Flush out the transients used in taprobana_categorized_blog
  *
  * @since Toolbox 1.2
  */
-function toolbox_category_transient_flusher() {
+function taprobana_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }
-add_action( 'edit_category', 'toolbox_category_transient_flusher' );
-add_action( 'save_post', 'toolbox_category_transient_flusher' );
+add_action( 'edit_category', 'taprobana_category_transient_flusher' );
+add_action( 'save_post', 'taprobana_category_transient_flusher' );
 
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
-function toolbox_enhanced_image_navigation( $url ) {
+function taprobana_enhanced_image_navigation( $url ) {
 	global $post, $wp_rewrite;
 
 	$id = (int) $post->ID;
@@ -302,7 +302,7 @@ function toolbox_enhanced_image_navigation( $url ) {
 
 	return $url;
 }
-add_filter( 'attachment_link', 'toolbox_enhanced_image_navigation' );
+add_filter( 'attachment_link', 'taprobana_enhanced_image_navigation' );
 
 
 /**

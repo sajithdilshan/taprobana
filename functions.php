@@ -1,6 +1,6 @@
 <?php
 /**
- * Toolbox functions and definitions
+ * taprobana functions and definitions
  *
  * Sets up the theme and provides some helper functions. Some helper functions
  * are used in the theme as custom template tags. Others are attached to action and
@@ -43,10 +43,10 @@ function taprobana_setup() {
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on toolbox, use a find and replace
-	 * to change 'toolbox' to the name of your theme in all the template files
+	 * If you're building a theme based on taprobana, use a find and replace
+	 * to change 'taprobana' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'toolbox', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'taprobana', get_template_directory() . '/languages' );
 
 	$locale = get_locale();
 	$locale_file = get_template_directory() . "/languages/$locale.php";
@@ -62,7 +62,7 @@ function taprobana_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'toolbox' ),
+		'primary' => __( 'Primary Menu', 'taprobana' ),
 	) );
 
 	/**
@@ -100,7 +100,7 @@ add_filter( 'wp_page_menu_args', 'taprobana_page_menu_args' );
  */
 function taprobana_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Sidebar 1', 'toolbox' ),
+		'name' => __( 'Sidebar 1', 'taprobana' ),
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
@@ -109,9 +109,9 @@ function taprobana_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' => __( 'Sidebar 2', 'toolbox' ),
+		'name' => __( 'Sidebar 2', 'taprobana' ),
 		'id' => 'sidebar-2',
-		'description' => __( 'An optional second sidebar area', 'toolbox' ),
+		'description' => __( 'An optional second sidebar area', 'taprobana' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h1 class="widget-title">',
@@ -124,28 +124,28 @@ if ( ! function_exists( 'taprobana_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
  *
- * @since Toolbox 1.2
+ * @since taprobana 1.2
  */
 function taprobana_content_nav( $nav_id ) {
 	global $wp_query;
 
 	?>
 	<nav id="<?php echo $nav_id; ?>">
-		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'toolbox' ); ?></h1>
+		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'taprobana' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'toolbox' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'toolbox' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'taprobana' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'taprobana' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'toolbox' ) ); ?></div>
+		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'taprobana' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'toolbox' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'taprobana' ) ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>
@@ -165,7 +165,7 @@ if ( ! function_exists( 'taprobana_comment' ) ) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
- * @since Toolbox 0.4
+ * @since taprobana 0.4
  */
 function taprobana_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
@@ -174,7 +174,7 @@ function taprobana_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'toolbox' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'toolbox' ), ' ' ); ?></p>
+		<p><?php _e( 'Pingback:', 'taprobana' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'taprobana' ), ' ' ); ?></p>
 	<?php
 			break;
 		default :
@@ -184,10 +184,10 @@ function taprobana_comment( $comment, $args, $depth ) {
 			<footer>
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, 40 ); ?>
-					<?php printf( __( '%s <span class="says">says:</span>', 'toolbox' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+					<?php printf( __( '%s <span class="says">says:</span>', 'taprobana' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment-author .vcard -->
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', 'toolbox' ); ?></em>
+					<em><?php _e( 'Your comment is awaiting moderation.', 'taprobana' ); ?></em>
 					<br />
 				<?php endif; ?>
 
@@ -195,9 +195,9 @@ function taprobana_comment( $comment, $args, $depth ) {
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
 						/* translators: 1: date, 2: time */
-						printf( __( '%1$s at %2$s', 'toolbox' ), get_comment_date(), get_comment_time() ); ?>
+						printf( __( '%1$s at %2$s', 'taprobana' ), get_comment_date(), get_comment_time() ); ?>
 					</time></a>
-					<?php edit_comment_link( __( '(Edit)', 'toolbox' ), ' ' );
+					<?php edit_comment_link( __( '(Edit)', 'taprobana' ), ' ' );
 					?>
 				</div><!-- .comment-meta .commentmetadata -->
 			</footer>
@@ -220,16 +220,16 @@ if ( ! function_exists( 'taprobana_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  * Create your own taprobana_posted_on to override in a child theme
  *
- * @since Toolbox 1.2
+ * @since taprobana 1.2
  */
 function taprobana_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'toolbox' ),
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'taprobana' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'toolbox' ), get_the_author() ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'taprobana' ), get_the_author() ) ),
 		esc_html( get_the_author() )
 	);
 }
@@ -238,7 +238,7 @@ endif;
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since Toolbox 1.2
+ * @since taprobana 1.2
  */
 function taprobana_body_classes( $classes ) {
 	// Adds a class of single-author to blogs with only 1 published author
@@ -253,7 +253,7 @@ add_filter( 'body_class', 'taprobana_body_classes' );
 /**
  * Returns true if a blog has more than 1 category
  *
- * @since Toolbox 1.2
+ * @since taprobana 1.2
  */
 function taprobana_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
@@ -280,7 +280,7 @@ function taprobana_categorized_blog() {
 /**
  * Flush out the transients used in taprobana_categorized_blog
  *
- * @since Toolbox 1.2
+ * @since taprobana 1.2
  */
 function taprobana_category_transient_flusher() {
 	// Like, beat it. Dig?
@@ -306,5 +306,5 @@ add_filter( 'attachment_link', 'taprobana_enhanced_image_navigation' );
 
 
 /**
- * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
+ * This theme was built with PHP, Semantic HTML, CSS, love, and a taprobana.
  */

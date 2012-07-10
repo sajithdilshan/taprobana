@@ -15,7 +15,7 @@ get_header(); ?>
 
 				<header class="page-header">
 					<h1 class="page-title"><?php
-						printf( __( 'Tag Archives: %s', 'toolbox' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+						printf( __( 'Tag Archives: %s', 'taprobana' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 					?></h1>
 
 					<?php
@@ -27,7 +27,7 @@ get_header(); ?>
 
 				<?php rewind_posts(); ?>
 
-				<?php toolbox_content_nav( 'nav-above' ); ?>
+				<?php taprobana_content_nav( 'nav-above' ); ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -42,17 +42,17 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php toolbox_content_nav( 'nav-below' ); ?>
+				<?php taprobana_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'toolbox' ); ?></h1>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'taprobana' ); ?></h1>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'toolbox' ); ?></p>
+						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'taprobana' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->

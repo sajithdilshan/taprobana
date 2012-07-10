@@ -13,11 +13,11 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php toolbox_content_nav( 'nav-above' ); ?>
+				<?php taprobana_content_nav( 'nav-above' ); ?>
 
 				<?php get_template_part( 'content', 'single' ); ?>
 
-				<?php toolbox_content_nav( 'nav-below' ); ?>
+				<?php taprobana_content_nav( 'nav-below' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

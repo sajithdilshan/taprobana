@@ -1,5 +1,5 @@
 ==============================================================================
-Taprobana v0.1 0.1- Designed by Sajith Dilshan | http://sajithdilshan.github.com
+Taprobana 0.1- Designed by Sajith Dilshan | http://sajithdilshan.github.com
 [Theme built for WordPress 2.8 or higher] 
 [Licensed under GPL]
 [June 26TH 2012]
@@ -10,7 +10,7 @@ About Taprobana
 This theme is inspired by the Twitter bootstrap and it is mostly 
 suitable for minimalistic websites.
 
-I hope you would enjoy MetroUI Theme and let me know what do you think about it.
+I hope you would enjoy Taprobana Theme and let me know what do you think about it.
 Email : sajithdilshan@gmail.com
 
 Demo of the Taprobana Theme : http://workdemo.x10.mx/taprobana
